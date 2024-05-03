@@ -41,7 +41,24 @@ class Player {
         return health > 0;
     }
 }
+class Game {
+    private final Player player1;
+    private final Player player2;
+
+    public Game(Player player1, Player player2) {
+        this.player1 = player1;
+        this.player2 = player2;
+    }
+
+    
+}
 class MagicalArena{
     public static void main(String[] args){
+        // Create players with given attributes
+        Player player1 = new Player(50, 5, 10);
+        Player player2 = new Player(100, 10, 5);
+        
+        // Create a game
+        Game game = new Game(player1, player2);
     }
 }
