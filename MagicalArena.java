@@ -105,5 +105,8 @@ class MagicalArena{
         
         // Create a game
         Game game = new Game(player1, player2);
+
+        // Start the fight
+        game.fight();
     }
 }
