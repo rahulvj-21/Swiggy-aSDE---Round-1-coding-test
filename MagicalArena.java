@@ -40,6 +40,20 @@ class Player {
     public boolean isAlive() {
         return health > 0;
     }
+    // Getter for health
+    public int getHealth() {
+        return health;
+    }
+
+    // Getter for attack power
+    public int getAttack() {
+        return attack;
+    }
+    
+    // Getter for strength
+    public int getStrength() {
+        return strength;
+    }
 }
 class Game {
     private final Player player1;
@@ -49,8 +63,39 @@ class Game {
         this.player1 = player1;
         this.player2 = player2;
     }
+    // Run the fight between two players
+    public void fight() {
+        System.out.println("The battle begins!");
+        
+        Player currentPlayer = null;
+        Player opponent = null;
 
-    
+        // Determine the initial order of attack based on health
+        if (player1.getHealth() <= player2.getHealth()) {
+            currentPlayer = player1;
+            opponent = player2;
+        } else {
+            currentPlayer = player2;
+            opponent = player1;
+        }
+
+        // Fight loop
+        while (player1.isAlive() && player2.isAlive()) {
+            currentPlayer.attack(opponent);
+            
+            // Swap turns
+            Player temp = currentPlayer;
+            currentPlayer = opponent;
+            opponent = temp;
+        }
+
+        // Determine the winner
+        if (player1.isAlive()) {
+            System.out.println("Player 1 wins!");
+        } else {
+            System.out.println("Player 2 wins!");
+        }
+    }
 }
 class MagicalArena{
     public static void main(String[] args){
