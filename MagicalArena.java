@@ -36,6 +36,10 @@ class Player {
             System.out.println("No damage taken.");
         }
     }
+    // Check if player is alive
+    public boolean isAlive() {
+        return health > 0;
+    }
 }
 class MagicalArena{
     public static void main(String[] args){
